@@ -4,14 +4,17 @@ const port = 8080
 
 function fizzBuzzOutput(value){
     // TODO: Write fizzbuzz
-    return value;
+    if(!(value % 3) & !(value % 5)) return "FizzBuzz"
+    else if(!(value % 3)) return "Fizz"
+    else if(!(value % 5)) return "Buzz"
+    else return value.toString();
 }
 
 app.get('/fizzbuzz/:n', (req, res) => {
     // TODO: Write express route
-
+    const {n} = req.params
     // * Send response
-    res.send("")
+    res.send( fizzBuzzOutput(parseInt(n)))
 })
 
 module.exports.app = app
